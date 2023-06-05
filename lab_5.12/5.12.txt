@@ -1,0 +1,217 @@
+1)public class Main {
+    public static void main(String[] args) {
+        int size = countOddNumbers(1, 99);
+        int[] oddNumbers = new int[size];
+
+        int index = 0;
+        for (int i = 1; i <= 99; i += 2) {
+            oddNumbers[index] = i;
+            index++;
+        }
+
+        // Виведення елементів у стовпчик
+        for (int i = 0; i < size; i++) {
+            System.out.println(oddNumbers[i]);
+        }
+    }
+
+    private static int countOddNumbers(int start, int end) {
+        int count = 0;
+        for (int i = start; i <= end; i++) {
+            if (i % 2 != 0) {
+                count++;
+            }
+        }
+        return count;
+    }
+}
+
+2)import java.util.Arrays;
+import java.util.Random;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] numbers = new int[20];
+        Random random = new Random();
+
+        // Заповнення масиву випадковими числами від 0 до 9
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = random.nextInt(10);
+        }
+
+        System.out.println("Початковий масив:");
+        System.out.println(Arrays.toString(numbers));
+
+        // Заміна елементів з непарними індексами на нуль
+        for (int i = 1; i < numbers.length; i += 2) {
+            numbers[i] = 0;
+        }
+
+        System.out.println("Оновлений масив:");
+        System.out.println(Arrays.toString(numbers));
+    }
+}
+
+3)import java.util.Arrays;
+import java.util.Random;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] array1 = generateRandomArray(5, 0, 5);
+        int[] array2 = generateRandomArray(5, 0, 5);
+        int[] array3 = generateRandomArray(5, 0, 5);
+
+        System.out.println("Масив 1: " + Arrays.toString(array1));
+        System.out.println("Масив 2: " + Arrays.toString(array2));
+        System.out.println("Масив 3: " + Arrays.toString(array3));
+
+        double average1 = calculateAverage(array1);
+        double average2 = calculateAverage(array2);
+        double average3 = calculateAverage(array3);
+
+        if (average1 > average2 && average1 > average3) {
+            System.out.println("Середнє значення масиву 1 є більшим.");
+        } else if (average2 > average1 && average2 > average3) {
+            System.out.println("Середнє значення масиву 2 є більшим.");
+        } else if (average3 > average1 && average3 > average2) {
+            System.out.println("Середнє значення масиву 3 є більшим.");
+        } else {
+            System.out.println("Середні значення масивів рівні.");
+        }
+    }
+
+    private static int[] generateRandomArray(int size, int min, int max) {
+        int[] array = new int[size];
+        Random random = new Random();
+
+        for (int i = 0; i < size; i++) {
+            array[i] = random.nextInt((max - min) + 1) + min;
+        }
+
+        return array;
+    }
+
+    private static double calculateAverage(int[] array) {
+        int sum = 0;
+
+        for (int value : array) {
+            sum += value;
+        }
+
+        return (double) sum / array.length;
+    }
+}
+
+4)import java.util.Arrays;
+import java.util.Random;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] array1 = generateRandomArray(10, 0, 10);
+        int[] array2 = generateRandomArray(10, 0, 10);
+        int[] array3 = new int[10];
+
+        for (int i = 0; i < 10; i++) {
+            array3[i] = array1[i] + array2[i];
+        }
+
+        System.out.println("Масив 1: " + Arrays.toString(array1));
+        System.out.println("Масив 2: " + Arrays.toString(array2));
+        System.out.println("Масив 3 (сума елементів): " + Arrays.toString(array3));
+    }
+
+    private static int[] generateRandomArray(int size, int min, int max) {
+        int[] array = new int[size];
+        Random random = new Random();
+
+        for (int i = 0; i < size; i++) {
+            array[i] = random.nextInt((max - min) + 1) + min;
+        }
+
+        return array;
+    }
+}
+
+5)import java.util.Random;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] array = generateRandomArray(15, 0, 10);
+System.out.println("Масив: ");
+        printArray(array);
+
+        int countEven = countEvenElements(array);
+        System.out.println("Кількість парних елементів: " + countEven);
+    }
+
+    private static int[] generateRandomArray(int size, int min, int max) {
+        int[] array = new int[size];
+        Random random = new Random();
+
+        for (int i = 0; i < size; i++) {
+            array[i] = random.nextInt((max - min) + 1) + min;
+        }
+
+        return array;
+    }
+
+    private static void printArray(int[] array) {
+        for (int value : array) {
+            System.out.print(value + " ");
+        }
+        System.out.println();
+    }
+
+    private static int countEvenElements(int[] array) {
+        int count = 0;
+        for (int value : array) {
+            if (value % 2 == 0) {
+                count++;
+            }
+        }
+        return count;
+    }
+}
+
+6) import java.util.Random;
+
+public class Main {
+    public static void main(String[] args) {
+        int[][] array = new int[15][];
+
+        array[0] = generateRandomArray(5, 0, 15);
+        array[1] = generateRandomArray(5, 0, 15);
+        array[2] = generateRandomArray(5, 0, 15);
+        array[3] = generateRandomArray(5, 0, 15);
+        array[4] = generateRandomArray(8, 0, 15);
+        array[5] = generateRandomArray(8, 0, 15);
+        array[6] = generateRandomArray(8, 0, 15);
+        array[7] = generateRandomArray(8, 0, 15);
+        array[8] = generateRandomArray(3, 0, 15);
+        array[9] = generateRandomArray(3, 0, 15);
+        array[10] = generateRandomArray(3, 0, 15);
+        array[11] = generateRandomArray(3, 0, 15);
+        array[12] = generateRandomArray(9, 0, 15);
+        array[13] = generateRandomArray(9, 0, 15);
+        array[14] = generateRandomArray(9, 0, 15);
+
+        // Виведення масиву на екран
+        for (int[] row : array) {
+            for (int value : row) {
+                System.out.print(value + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    private static int[] generateRandomArray(int size, int min, int max) {
+        int[] array = new int[size];
+        Random random = new Random();
+
+        for (int i = 0; i < size; i++) {
+            array[i] = random.nextInt((max - min) + 1) + min;
+        }
+
+        return array;
+    }
+}
